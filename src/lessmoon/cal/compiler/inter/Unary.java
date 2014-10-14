@@ -15,20 +15,6 @@ public class Unary extends Expr{
             return -(expr.cal());
         case '+':
             return expr.cal();
-        case Tag.SQR:
-            return Math.sqrt(expr.cal());
-        case Tag.TAN:
-            return Math.tan(expr.cal());
-        case Tag.SIN:
-            return Math.sin(expr.cal());
-        case Tag.COS:
-            return Math.cos(expr.cal());
-        case Tag.EXP:
-            return Math.exp(expr.cal());
-        case Tag.LOG:
-            return Math.log10(expr.cal());
-        case Tag.LN:
-            return Math.log(expr.cal());
         default:
             //error("Unknown oprand `" + (char)op.tag + "'");
             return 0;

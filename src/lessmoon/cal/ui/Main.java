@@ -6,8 +6,8 @@ import java.awt.event.*;
 import javax.swing.event.*;
 
 public class Main {
-    public static final int WIDTH  =  300,
-                            HEIGHT =  240;
+    public static final int WIDTH  =  250,
+                            HEIGHT =  220;
     public static void main(String[] args) {
         try { 
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName()); 

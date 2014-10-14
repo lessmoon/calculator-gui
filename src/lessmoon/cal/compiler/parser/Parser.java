@@ -39,16 +39,8 @@ public class Parser{
     }
 
     Expr term()throws Exception{
-        Expr x = pow();
-        while(look.tag == '*' || look.tag == '/'){
-            Token tok = look; move(); x = new Arith(tok,x,pow());
-        }
-        return x;
-    }
-   
-    Expr pow()throws Exception{
         Expr x = unary();
-        while(look.tag == '^' ){
+        while(look.tag == '*' || look.tag == '/'){
             Token tok = look; move(); x = new Arith(tok,x,unary());
         }
         return x;
@@ -58,10 +50,6 @@ public class Parser{
         Token tmp = look;
         switch(look.tag) {
           case '-'    :case '+'    :
-          case Tag.TAN:case Tag.EXP:
-          case Tag.SIN:case Tag.COS:
-          case Tag.LOG:case Tag.LN :
-          case Tag.SQR:
                 move();
                 return new Unary(tmp,unary());
           default:

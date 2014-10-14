@@ -9,7 +9,7 @@ import lessmoon.cal.computing.*;
 
 public class Calculator extends JFrame {
     
-    JTextField txt = new JTextField(25);
+    JTextField txt = new JTextField(15);
     ButtonListener bl = new ButtonListener();
     Computing com  = new Computing();
     
@@ -21,17 +21,19 @@ public class Calculator extends JFrame {
         txt.setEditable(false);
         add(txt);
         JPanel jp = new JPanel();
-        jp.setLayout(new GridLayout(6,5,1,1));
+        JButton b = new JButton("Del");
+        b.addActionListener(bl);
+        add(b);
+        jp.setLayout(new GridLayout(5,4,1,1));
         add(jp);
-        String[] ButtonNames = {    "Del","CE" ,"ans" ,"sin" ,"cos" ,
-                                    "ln","log","sqr" ,"tan" ,"exp" ,
-                                    "7" ,"8"  ,"9"   ,"^"   ,"1/x" ,
-                                    "4" ,"5"  ,"6"   ,"+"   ,"*"   ,
-                                    "1" ,"2"  ,"3"   ,"-"   ,"/"   ,
-                                    "0" ,"."  ,"("   ,")"   ,"="
+        String[] ButtonNames = {    "CE" ,"ans","("  ,")" ,
+                                    "7"  ,"8"  ,"9"  ,"/" ,
+                                    "4"  ,"5"  ,"6"  ,"*" ,
+                                    "1"  ,"2"  ,"3"  ,"-" ,
+                                    "0"  ,"."  ,"="  ,"+" 
                                 };
         for(String name : ButtonNames) {
-            JButton b = new JButton(name);
+            b = new JButton(name);
             b.addActionListener(bl);
             jp.add(b);
         }

@@ -4,32 +4,18 @@ import java.io.*; import java.util.*;
 
 public class Lexer {
     char peek = ' ';
-    Hashtable words = new Hashtable();
     LexerInputStream is;
     
-    void reserve(Word w){words.put(w.lexeme,w);}
     public Lexer(){
         is = new LexerInputStream() {
             public char getch() throws Exception{
                 return (char)System.in.read();
             }
         };
-        initKeepWords();
     }
 
     public Lexer(LexerInputStream is) {
         this.is = is;
-        initKeepWords();
-    }
-
-    void initKeepWords() {
-        reserve(new Word("sqr",Tag.SQR));
-        reserve(new Word("tan",Tag.TAN));
-        reserve(new Word("sin",Tag.SIN));
-        reserve(new Word("cos",Tag.COS));
-        reserve(new Word("exp",Tag.EXP));
-        reserve(new Word("log",Tag.LOG));
-        reserve(new Word("ln",Tag.LN));
     }
 
     void readch() throws Exception{
@@ -75,8 +61,6 @@ public class Lexer {
                 b.append(peek);readch();
             } while(Character.isLetterOrDigit(peek));
             String s = b.toString();
-            Word w = (Word)words.get(s);
-            if(w != null) return w;
             return new Word(s,Tag.UNKNOWN);
         }
  

@@ -20,8 +20,6 @@ public class Arith extends Expr{
             return expr1.cal() * expr2.cal();
         case '/':
             return expr1.cal() / expr2.cal();
-        case '^':
-            return Math.pow(expr1.cal(),expr2.cal());
         default:
             //super.error("Unsupport oprand `" + (char) op.tag + "'");
             return 0;
